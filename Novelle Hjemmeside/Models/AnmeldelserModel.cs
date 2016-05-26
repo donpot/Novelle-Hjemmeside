@@ -8,6 +8,7 @@ namespace Novelle_Hjemmeside.Models
     public class AnmeldelserModel
     {
         public string Anmeldelser;
+        public string Bruger;
 
         public DateTime Date;
 

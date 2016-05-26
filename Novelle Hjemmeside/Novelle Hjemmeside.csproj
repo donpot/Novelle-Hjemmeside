@@ -129,7 +129,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AnmeldelserModel.cs" />
-    <Compile Include="Models\KapittleModel.cs" />
     <Compile Include="Models\KommentarModel.cs" />
     <Compile Include="Models\NovelleModel.cs" />
     <Compile Include="Models\UserModel.cs" />
