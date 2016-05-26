@@ -9,7 +9,11 @@ namespace Novelle_Hjemmeside.Models
     {
         public int Ko_Kapitle_ID;
         public int Ko_Novelle_ID;
+        public int Ko_Bruger_ID;
 
-        public string Kapitle_Navn;
+        public string Kommentar;
+        public string Bruger;
+
+        public DateTime Dato;
     }
 }
