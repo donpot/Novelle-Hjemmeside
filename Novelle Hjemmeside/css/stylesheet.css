@@ -1,0 +1,36 @@
+﻿body {
+    margin: 0;
+}
+.OuterLayout {
+    width: 960px;
+    min-height: 600px;
+    margin: 0 auto;
+}
+.InnerLayout {
+    overflow: hidden;
+}
+.HeaderLayout {
+    height: 150px;
+    width: 100%;
+    background-color: red;
+    margin-bottom: 20px;
+}
+.MenuBar {
+    width: 125px;
+    min-height: 200px;
+    background-color:cornflowerblue;
+}
+.LeftMenuLayout {
+    float: left;
+}
+.RightMenuLayout {
+    float: right;
+}
+.ContentWrapper {
+    width: 710px;
+    float: left;
+}
+.InnerContent {
+    padding: 10px;
+}
+
