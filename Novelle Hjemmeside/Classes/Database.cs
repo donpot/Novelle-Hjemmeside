@@ -10,9 +10,11 @@ namespace Novelle_Hjemmeside.Classes
 {
     class Database
     {
-        public static string connectionstring = "";
+        public static string connectionstring = "Data Source=.;Initial Catalog=Noveller;Integrated Security=True";
 
         SqlConnection Connection = new SqlConnection(connectionstring);
+
+        #region Resterende
 
         public UserModel BrugerLogin(string Un, string Pw)
         {
@@ -58,6 +60,8 @@ namespace Novelle_Hjemmeside.Classes
             }
             return SamletBedømmelse;
         }
+
+        #endregion
 
         #region Lists-Region
 
@@ -240,6 +244,53 @@ namespace Novelle_Hjemmeside.Classes
 
         #endregion
 
+        #region Tilføj
 
+        public void TilføjBruger(string Un, string Pw, string Em, bool A )
+        {
+            Connection.Open();
+
+            using (SqlCommand TBCommand = new SqlCommand("INSERT INTO Bruger VALUES ('" + Un + "', '" + Pw + "', '" + Em + "', '" + DateTime.Today + "', '" + A + "');"))
+            {
+                TBCommand.ExecuteNonQuery();
+                
+            }
+            Connection.Close();
+        }
+
+        public void TilføjNovelle(string Bn, int bid, string Nn, string Nb)
+        {
+            Connection.Open();
+
+            using (SqlCommand TNCommand = new SqlCommand("INSERT INTO Novel VALUES ('" + DateTime.Today + "', '" + Bn + "', '" + bid + "', '" + Nn + "', '" + Nb + "');"))
+            {
+                TNCommand.ExecuteNonQuery();
+            }
+            Connection.Close();
+        }
+
+        public void TilføjKommentar(string Kt, string Bn, int nid, int bid)
+        {
+            Connection.Open();
+
+            using (SqlCommand TKCommand = new SqlCommand("INSERT INTO Kommentar VALUES ('" + Kt + "', '" + Bn + "', '" + DateTime.Today + "', '" + nid + "', '" + bid + "');"))
+            {
+                TKCommand.ExecuteNonQuery();
+            }
+            Connection.Close();
+        }
+
+        public void TilføjAnmeldelse(string At, string Bn, int nid, int bid, int bedøm)
+        {
+            Connection.Open();
+
+            using (SqlCommand TACommand = new SqlCommand("INSERT INTO anmeldelser VALUES ('" + At + "', '" + Bn + "', '" + DateTime.Today + "', '" + nid + "', '" + bid + "', '" + bedøm + "');"))
+            {
+                TACommand.ExecuteNonQuery();
+            }
+            Connection.Close();
+        }
+
+        #endregion
     }
 }
