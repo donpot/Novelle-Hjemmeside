@@ -162,19 +162,84 @@ namespace Novelle_Hjemmeside.Classes
 
         public NovelleModel GetRandomNovelle()
         {
-            //SELECT TOP 1 from Bruger ORDER BY NEWID()  1 Random
+            Connection.Open();
+            NovelleModel RanNov = new NovelleModel();
+            using (SqlCommand RandomCommand = new SqlCommand("SELECT TOP 1 from Novelle ORDER BY NEWID()"))
+                {
+                SqlDataReader RanRead = RandomCommand.ExecuteReader();
+                if (RanRead.HasRows)
+                {
+                    RanRead.Read();
+                    RanNov.NovelleBeskrivelse = RanRead["Beskrivelse"].ToString();
+                    RanNov.NovelleNavn = RanRead["NovelleNavn"].ToString();
+                    RanNov.Novelle_ID = Convert.ToInt32(RanRead["N_ID"]);
+                    RanNov.N_Date = Convert.ToDateTime(RanRead["Dato"]);
+                    RanNov.N_Username = RanRead["Bruger"].ToString();
+                    RanNov.N_User_ID = Convert.ToInt32(RanRead["B_ID"]);
+                }
+                else
+                {
+
+                }
+                return RanNov;
+                }
         }
 
         public List<NovelleModel> Get5RandomNovelle()
         {
-            //SELECT TOP 5 from Bruger ORDER BY NEWID()  5 Random
+            Connection.Open();
+
+            List<NovelleModel> Listr = new List<NovelleModel>();
+            
+            using (SqlCommand RandomCommand = new SqlCommand("SELECT TOP 5 from Novelle ORDER BY NEWID()"))
+            {
+                SqlDataReader RandRead = RandomCommand.ExecuteReader();
+                while (RandRead.Read())
+                {
+                    NovelleModel r = new NovelleModel();
+                    r.NovelleBeskrivelse = RandRead["Beskrivelse"].ToString();
+                    r.NovelleNavn = RandRead["NovelleNavn"].ToString();
+                    r.Novelle_ID = Convert.ToInt32(RandRead["N_ID"]);
+                    r.N_Date = Convert.ToDateTime(RandRead["Dato"]);
+                    r.N_Username = RandRead["Bruger"].ToString();
+                    r.N_User_ID = Convert.ToInt32(RandRead["B_ID"]);
+
+                    Listr.Add(r);
+                }
+                
+                return Listr;
+            }
         }
 
         public List<NovelleModel> Get5NyestNoveller()
         {
-            //SELECT TOP 5 FROM Bruger ORDER BY Date DESC
+
+            Connection.Open();
+
+            List<NovelleModel> Listny = new List<NovelleModel>();
+
+            using (SqlCommand NewCommand = new SqlCommand("SELECT TOP 5 from Novelle ORDER BY Dato DESC"))
+            {
+                SqlDataReader NewRead = NewCommand.ExecuteReader();
+                while (NewRead.Read())
+                {
+                    NovelleModel n = new NovelleModel();
+                    n.NovelleBeskrivelse = NewRead["Beskrivelse"].ToString();
+                    n.NovelleNavn = NewRead["NovelleNavn"].ToString();
+                    n.Novelle_ID = Convert.ToInt32(NewRead["N_ID"]);
+                    n.N_Date = Convert.ToDateTime(NewRead["Dato"]);
+                    n.N_Username = NewRead["Bruger"].ToString();
+                    n.N_User_ID = Convert.ToInt32(NewRead["B_ID"]);
+
+                    Listny.Add(n);
+                }
+
+                return Listny;
+            }
         }
 
         #endregion
+
+
     }
 }
