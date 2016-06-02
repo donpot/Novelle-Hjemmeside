@@ -9,7 +9,23 @@ namespace Novelle_Hjemmeside.Controllers
     public class BrugerController : Controller
     {
         // GET: Bruger
-        public ActionResult Index()
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Info()
+        {
+            return View();
+        }
+
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
+        public ActionResult Registre()
         {
             return View();
         }
