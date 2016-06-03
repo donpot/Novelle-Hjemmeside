@@ -1,5 +1,6 @@
 ﻿body {
     margin: 0;
+    background-color:bisque;
 }
 .OuterLayout {
     width: 960px;
@@ -10,13 +11,26 @@
     overflow: hidden;
 }
 .HeaderLayout {
-    height: 150px;
+    height: 170px;
     width: 100%;
-    background-color: red;
     margin-bottom: 20px;
+    background-color: white;
+    overflow: hidden;
+}
+.HeaderLogo {
+    height: 150px;
+    width: 170px;
+    margin-top: 10px;
+    background: url('../Images/Logo.png') no-repeat;
+    float: left;
+}
+.HeaderTxt {
+    float: left;
+    margin: 50px 0 0 50px;
+    font-size: 62px;
 }
 .MenuBar {
-    width: 125px;
+    width: 170px;
     min-height: 200px;
     background-color:cornflowerblue;
 }
@@ -26,12 +40,37 @@
 .RightMenuLayout {
     float: right;
 }
+.RandomNovelsWrapper {
+    width: 100%;
+    text-align: center;
+}
+.NewestNovelsWrapper {
+    width: 100%;
+    text-align: center;
+}
+.NovelsBorders {
+    border: 2px solid black;
+}
 .ContentWrapper {
-    width: 710px;
+    width: 620px;
     float: left;
 }
 .InnerContent {
-    padding: 10px;
+    padding: 0 10px 0 10px;
 }
-
-h
+.RegisterBox {
+    width: 578px;
+    min-height: 200px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 0 10px 0 10px;
+}
+.RegisterTxt {
+    font-size: 22px;
+}
+.RandomNovelBox {
+    width: 578px;
+    min-height: 200px;
+    border: 1px solid black;
+    padding: 0 10px 0 10px;
+}

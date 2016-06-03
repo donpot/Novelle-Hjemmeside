@@ -1,5 +1,11 @@
 ﻿<!DOCTYPE html>
-
+@{
+    Novelle_Hjemmeside.Classes.Database db = new Novelle_Hjemmeside.Classes.Database();
+    List<Novelle_Hjemmeside.Models.NovelleModel> RandomNovels = new List<Novelle_Hjemmeside.Models.NovelleModel>();
+    RandomNovels = db.Get5RandomNovelle();
+    List<Novelle_Hjemmeside.Models.NovelleModel> NewestNovels = new List<Novelle_Hjemmeside.Models.NovelleModel>();
+    NewestNovels = db.Get5NyestNoveller();
+}
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -10,15 +16,36 @@
     <div>
         <div class="OuterLayout">
             <div class="InnerLayout">
-                <div class="HeaderLayout"></div>
+                <div class="HeaderLayout">
+                    <div class="HeaderLogo"></div>
+                    <h1 class="HeaderTxt">Websters Noveller</h1>
+                </div>
                 <div class="LeftMenuLayout MenuBar"></div>
                 <div class="ContentWrapper">
                     <div class="InnerContent">
                         @RenderBody()
-                        k
                     </div>
                 </div>
-                <div class="RightMenuLayout MenuBar"></div>
+                <div class="RightMenuLayout MenuBar">
+                    <div class="RandomNovelsWrapper">
+                        <h4 class="MenuHeadings">5 tilfældige</h4>
+                        <div class="NovelsBorders">
+                            @foreach (var item in RandomNovels)
+                            {
+                                <p class="NovelListTxt">@item.NovelleNavn</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="NewestNovelsWrapper">
+                        <h4 class="MenuHeadings">5 nyest</h4>
+                        <div class="NovelsBorders">
+                            @foreach (var item in NewestNovels)
+                            {
+                                <p class="NovelListTxt">@item.NovelleNavn</p>
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
