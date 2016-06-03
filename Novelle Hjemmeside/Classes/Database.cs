@@ -11,6 +11,7 @@ namespace Novelle_Hjemmeside.Classes
     public class Database
     {
         public static string connectionstring = "Data Source=.;Initial Catalog=Noveller;Integrated Security=True";
+        //public static string connectionstring = "Data Source=CHRISTIAN-PC\\SQLEXPRESS;Initial Catalog=Noveller;Integrated Security=True";
 
         SqlConnection Connection = new SqlConnection(connectionstring);
 
@@ -37,6 +38,7 @@ namespace Novelle_Hjemmeside.Classes
                 {
                     LogInBruger.Admin = false;
                 }
+                Connection.Close();
                 return LogInBruger;
             }
         }
@@ -58,6 +60,7 @@ namespace Novelle_Hjemmeside.Classes
                 SamletBedømmelse = SamletBedømmelse / rows;
 
             }
+            Connection.Close();
             return SamletBedømmelse;
         }
 
@@ -86,7 +89,8 @@ namespace Novelle_Hjemmeside.Classes
                     BrugerListe.Add(u);                  
                 }
             }
-                return BrugerListe;
+            Connection.Close();
+            return BrugerListe;
         }
 
         public List<NovelleModel> GetNovelle()
@@ -110,7 +114,8 @@ namespace Novelle_Hjemmeside.Classes
                     NovelleListe.Add(n);
                 }
             }
-                return NovelleListe;
+            Connection.Close();
+            return NovelleListe;
         }
 
         public List<KommentarModel> GetKommentar()
@@ -133,7 +138,8 @@ namespace Novelle_Hjemmeside.Classes
                     KommentarList.Add(ko);
                 }
             }
-                return KommentarList;
+            Connection.Close();
+            return KommentarList;
         }
 
         public List<AnmeldelserModel> GetAnmeldelse()
@@ -157,7 +163,8 @@ namespace Novelle_Hjemmeside.Classes
                     AnmeldelseListe.Add(a);
                 }
             }
-                return AnmeldelseListe;
+            Connection.Close();
+            return AnmeldelseListe;
         }
 
         #endregion //Lists
@@ -185,6 +192,7 @@ namespace Novelle_Hjemmeside.Classes
                 {
 
                 }
+                Connection.Close();
                 return RanNov;
                 }
         }
@@ -210,7 +218,7 @@ namespace Novelle_Hjemmeside.Classes
 
                     Listr.Add(r);
                 }
-                
+                Connection.Close();
                 return Listr;
             }
         }
@@ -237,7 +245,7 @@ namespace Novelle_Hjemmeside.Classes
 
                     Listny.Add(n);
                 }
-
+                Connection.Close();
                 return Listny;
             }
         }
