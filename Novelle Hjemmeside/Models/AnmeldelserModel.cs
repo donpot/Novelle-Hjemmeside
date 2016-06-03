@@ -7,13 +7,13 @@ namespace Novelle_Hjemmeside.Models
 {
     public class AnmeldelserModel
     {
-        public string Anmeldelser;
-        public string Bruger;
+        public string Anmeldelser { get; set; }
+        public string Bruger { get; set; }
 
-        public DateTime Date;
+        public DateTime Date { get; set; }
 
-        public int A_Bruger_ID;
-        public int A_Novelle_ID;
-        public int Bedømelse;
+        public int A_Bruger_ID { get; set; }
+        public int A_Novelle_ID { get; set; }
+        public int Bedømelse { get; set; }
     }
 }

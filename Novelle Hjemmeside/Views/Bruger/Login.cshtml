@@ -1,0 +1,31 @@
+﻿@model Novelle_Hjemmeside.Models.UserModel
+@{
+    ViewBag.Title = "Login";
+
+    if (ViewBag.Message != null)
+    {
+        <script>
+            $(document).ready(function () {
+                alert('@ViewBag.Message');
+            });
+        </script>
+    }
+}
+
+<h2>Login</h2>
+
+<form action="~/Bruger/Login" method="post">
+    <table>
+        <tr>
+            <td>
+                Username:
+                <input type="text" title="Username" name="UserName" />
+                <br />
+                Password:
+                <input type="password" title="Password" name="PassWord" style="margin-left:4px" />
+                <br />
+                <input type="submit" title="Login" value="Login" style="margin-left:120px" />
+            </td>
+        </tr>
+    </table>
+</form>

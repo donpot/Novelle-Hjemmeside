@@ -7,13 +7,13 @@ namespace Novelle_Hjemmeside.Models
 {
     public class NovelleModel
     {
-        public int Novelle_ID;
-        public int N_User_ID;
+        public int Novelle_ID { get; set; }
+        public int N_User_ID { get; set; }
 
-        public DateTime N_Date;
+        public DateTime N_Date { get; set; }
 
-        public string N_Username;
-        public string NovelleNavn;
-        public string NovelleBeskrivelse;
+        public string N_Username { get; set; }
+        public string NovelleNavn { get; set; }
+        public string NovelleBeskrivelse { get; set; }
     }
 }

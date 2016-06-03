@@ -7,14 +7,14 @@ namespace Novelle_Hjemmeside.Models
 {
     public class UserModel
     {
-        public string UserName;
-        public string PassWord;
-        public string Email;
+        public string UserName { get; set; }
+        public string PassWord { get; set; }
+        public string Email { get; set; }
 
-        public DateTime Date;
+        public DateTime Date { get; set; }
 
-        public int User_ID;
+        public int User_ID { get; set; }
 
-        public bool Admin;
+        public bool Admin { get; set; }
     }
 }
