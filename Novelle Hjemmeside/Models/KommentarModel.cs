@@ -7,13 +7,13 @@ namespace Novelle_Hjemmeside.Models
 {
     public class KommentarModel
     {
-        public int Ko_Kapitle_ID;
-        public int Ko_Novelle_ID;
-        public int Ko_Bruger_ID;
+        public int Ko_Kapitle_ID { get; set; }
+        public int Ko_Novelle_ID { get; set; }
+        public int Ko_Bruger_ID { get; set; }
 
-        public string Kommentar;
-        public string Bruger;
+        public string Kommentar { get; set; }
+        public string Bruger { get; set; }
 
-        public DateTime Dato;
+        public DateTime Dato { get; set; }
     }
 }

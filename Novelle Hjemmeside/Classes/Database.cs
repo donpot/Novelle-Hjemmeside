@@ -8,7 +8,7 @@ using Novelle_Hjemmeside.Models;
 
 namespace Novelle_Hjemmeside.Classes
 {
-    class Database
+    public class Database
     {
         public static string connectionstring = "Data Source=.;Initial Catalog=Noveller;Integrated Security=True";
 
@@ -20,7 +20,7 @@ namespace Novelle_Hjemmeside.Classes
         {
             Connection.Open();
             UserModel LogInBruger = new UserModel();
-            using (SqlCommand LoginCommand = new SqlCommand("SELECT * FROM Bruger WHERE Username = '" + Un + " AND Passw = '" + Pw + "'"))
+            using (SqlCommand LoginCommand = new SqlCommand("SELECT * FROM Bruger WHERE Username = '" + Un + "' AND Passw = '" + Pw + "'", Connection))
             {
                 SqlDataReader readerlogin = LoginCommand.ExecuteReader();
                 if (readerlogin.HasRows)
@@ -47,7 +47,7 @@ namespace Novelle_Hjemmeside.Classes
             int rows = 0;
 
             Connection.Open();
-            using (SqlCommand BedømCommand = new SqlCommand("SELECT Bedømelse FROM Anmeldelse WHERE N_ID = '" + id + "'"))
+            using (SqlCommand BedømCommand = new SqlCommand("SELECT Bedømelse FROM Anmeldelse WHERE N_ID = '" + id + "'", Connection))
             {
                 SqlDataReader BedømReader = BedømCommand.ExecuteReader();
                 while (BedømReader.Read())
@@ -94,7 +94,7 @@ namespace Novelle_Hjemmeside.Classes
             List<NovelleModel> NovelleListe = new List<NovelleModel>();
 
             Connection.Open();
-            using (SqlCommand NovelleCommand = new SqlCommand("SELECT * FROM Novel"))
+            using (SqlCommand NovelleCommand = new SqlCommand("SELECT * FROM Novel", Connection))
             {
                 SqlDataReader Nreader = NovelleCommand.ExecuteReader();
                 while (Nreader.Read())
@@ -118,7 +118,7 @@ namespace Novelle_Hjemmeside.Classes
             List<KommentarModel> KommentarList = new List<KommentarModel>();
 
             Connection.Open();
-            using (SqlCommand Kocommand = new SqlCommand("SELECT * FROM Kommenrar"))
+            using (SqlCommand Kocommand = new SqlCommand("SELECT * FROM Kommenrar", Connection))
             {
                 SqlDataReader Koreader = Kocommand.ExecuteReader();
                 while (Koreader.Read())
@@ -141,7 +141,7 @@ namespace Novelle_Hjemmeside.Classes
             List<AnmeldelserModel> AnmeldelseListe = new List<AnmeldelserModel>();
 
             Connection.Open();
-            using (SqlCommand Acommand = new SqlCommand("SELECT * FROM Anmeldelser"))
+            using (SqlCommand Acommand = new SqlCommand("SELECT * FROM Anmeldelser", Connection))
             {
                 SqlDataReader Areader = Acommand.ExecuteReader();
                 while (Areader.Read())
@@ -168,7 +168,7 @@ namespace Novelle_Hjemmeside.Classes
         {
             Connection.Open();
             NovelleModel RanNov = new NovelleModel();
-            using (SqlCommand RandomCommand = new SqlCommand("SELECT TOP 1 from Novelle ORDER BY NEWID()"))
+            using (SqlCommand RandomCommand = new SqlCommand("SELECT TOP 1 * from Novel ORDER BY NEWID()", Connection))
                 {
                 SqlDataReader RanRead = RandomCommand.ExecuteReader();
                 if (RanRead.HasRows)
@@ -195,7 +195,7 @@ namespace Novelle_Hjemmeside.Classes
 
             List<NovelleModel> Listr = new List<NovelleModel>();
             
-            using (SqlCommand RandomCommand = new SqlCommand("SELECT TOP 5 from Novelle ORDER BY NEWID()"))
+            using (SqlCommand RandomCommand = new SqlCommand("SELECT TOP 5 * from Novel ORDER BY NEWID()", Connection))
             {
                 SqlDataReader RandRead = RandomCommand.ExecuteReader();
                 while (RandRead.Read())
@@ -222,7 +222,7 @@ namespace Novelle_Hjemmeside.Classes
 
             List<NovelleModel> Listny = new List<NovelleModel>();
 
-            using (SqlCommand NewCommand = new SqlCommand("SELECT TOP 5 from Novelle ORDER BY Dato DESC"))
+            using (SqlCommand NewCommand = new SqlCommand("SELECT TOP 5 * from Novel ORDER BY Dato DESC", Connection))
             {
                 SqlDataReader NewRead = NewCommand.ExecuteReader();
                 while (NewRead.Read())
@@ -250,7 +250,7 @@ namespace Novelle_Hjemmeside.Classes
         {
             Connection.Open();
 
-            using (SqlCommand TBCommand = new SqlCommand("INSERT INTO Bruger VALUES ('" + Un + "', '" + Pw + "', '" + Em + "', '" + DateTime.Today + "', '" + A + "');"))
+            using (SqlCommand TBCommand = new SqlCommand("INSERT INTO Bruger VALUES ('" + Un + "', '" + Pw + "', '" + Em + "', '" + DateTime.Today + "', '" + A + "');", Connection))
             {
                 TBCommand.ExecuteNonQuery();
                 
@@ -262,7 +262,7 @@ namespace Novelle_Hjemmeside.Classes
         {
             Connection.Open();
 
-            using (SqlCommand TNCommand = new SqlCommand("INSERT INTO Novel VALUES ('" + DateTime.Today + "', '" + Bn + "', '" + bid + "', '" + Nn + "', '" + Nb + "');"))
+            using (SqlCommand TNCommand = new SqlCommand("INSERT INTO Novel VALUES ('" + DateTime.Today + "', '" + Bn + "', '" + bid + "', '" + Nn + "', '" + Nb + "');", Connection))
             {
                 TNCommand.ExecuteNonQuery();
             }
@@ -273,7 +273,7 @@ namespace Novelle_Hjemmeside.Classes
         {
             Connection.Open();
 
-            using (SqlCommand TKCommand = new SqlCommand("INSERT INTO Kommentar VALUES ('" + Kt + "', '" + Bn + "', '" + DateTime.Today + "', '" + nid + "', '" + bid + "');"))
+            using (SqlCommand TKCommand = new SqlCommand("INSERT INTO Kommentar VALUES ('" + Kt + "', '" + Bn + "', '" + DateTime.Today + "', '" + nid + "', '" + bid + "');", Connection))
             {
                 TKCommand.ExecuteNonQuery();
             }
@@ -284,7 +284,7 @@ namespace Novelle_Hjemmeside.Classes
         {
             Connection.Open();
 
-            using (SqlCommand TACommand = new SqlCommand("INSERT INTO anmeldelser VALUES ('" + At + "', '" + Bn + "', '" + DateTime.Today + "', '" + nid + "', '" + bid + "', '" + bedøm + "');"))
+            using (SqlCommand TACommand = new SqlCommand("INSERT INTO anmeldelser VALUES ('" + At + "', '" + Bn + "', '" + DateTime.Today + "', '" + nid + "', '" + bid + "', '" + bedøm + "');", Connection))
             {
                 TACommand.ExecuteNonQuery();
             }
