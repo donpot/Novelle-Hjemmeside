@@ -1,7 +1,26 @@
 ﻿
 @{
-    ViewBag.Title = "Info";
+    ViewBag.Title = "Bruger Info";
 }
 
-<h2>Info</h2>
+<h2 style="text-align:center">Info</h2>
 
+<form action="~/Bruger/Info" method="get">
+    <table width="600">
+        <tr>
+            <td style="font-size:150%">  
+                <b>Brugernavn:</b>
+                <label style="display:block;text-align:center" title="BrugernavnLabel">@ViewBag.Brugernavn</label>
+                <br /><br />
+                <b>Email:</b>
+                <label style="text-align:center;display:block" title="EmailLable">@ViewBag.Email</label>
+                <br /><br />
+                <b>Dato:</b>
+                <label style="text-align:center;display:block" title="DatoLable">@ViewBag.Dato</label>
+                <br /><br />
+                @Html.ActionLink("Opret Novelle", "sted", "sted", null, new { @class = "button" })
+                @Html.ActionLink("Editer Bruger Oplysninger", "sted", "sted", null, new { @class = "button" })
+            </td>
+        </tr>
+    </table>
+</form>
