@@ -1,21 +1,24 @@
 ﻿@model Novelle_Hjemmeside.Models.UserModel
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Registre";
 }
 
-<h2>Login</h2>
+<h2>Registre</h2>
 
-<form action="~/Bruger/Login" method="post">
+<form action="~/Bruger/Registre" method="post">
     <table>
         <tr>
             <td>
                 Username:
                 <input type="text" title="Username" name="UserName" />
                 <br />
+                E-mail:
+                <input type="text" title="Email" name="Email" style="margin-left:4px" />
+                <br />
                 Password:
                 <input type="password" title="Password" name="PassWord" style="margin-left:4px" />
                 <br />
-                <input type="submit" title="Login" value="Login" style="margin-left:120px" />
+                <input type="submit" title="Registre" value="Registre" style="margin-left:120px" />
             </td>
         </tr>
     </table>

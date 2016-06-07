@@ -43,7 +43,6 @@ namespace Novelle_Hjemmeside.Controllers
             }
             else
             {
-                ViewBag.Message = "Forket brugernavn eller password";
                 return View();
             }
         }
@@ -56,7 +55,31 @@ namespace Novelle_Hjemmeside.Controllers
         }
 
         [HttpGet]
-        public ActionResult Info()
+        [ActionName("Info")]
+        public ActionResult InfoGet()
+        {
+
+            if (Session["login"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                UserModel b = new UserModel();
+
+                b = (UserModel)Session["login"];
+
+                ViewBag.Brugernavn = b.UserName.ToString();
+                ViewBag.Email = b.Email.ToString();
+                ViewBag.Dato = b.Date.Date.ToShortDateString();
+
+                return View();
+            }
+        }
+
+        [HttpPost]
+        [ActionName("Info")]
+        public ActionResult InfoPost()
         {
             return View();
         }
@@ -66,9 +89,35 @@ namespace Novelle_Hjemmeside.Controllers
             return View();
         }
 
-        public ActionResult Registre()
+        [HttpGet]
+        [ActionName("Registre")]
+        public ActionResult RegistreGet()
         {
-            return View();
+            if(Session["login"] == null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ActionName("Registre")]
+        public ActionResult RegistrePost(UserModel user)
+        {
+            Database db = new Database();
+            UserModel u = new UserModel();
+
+            string username = user.UserName;
+            string password = user.PassWord;
+            string email = user.Email;
+            bool admin = false;
+
+            db.TilføjBruger(username, password, email, admin);
+
+            return RedirectToAction("Login", "Bruger");
         }
     }
 }
