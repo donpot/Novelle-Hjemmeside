@@ -22,6 +22,7 @@
     width: 170px;
     margin-top: 10px;
     background: url('../Images/Logo.png') no-repeat;
+    background-size: contain;
     float: left;
 }
 .HeaderTxt {
@@ -58,12 +59,27 @@
 .InnerContent {
     padding: 0 10px 0 10px;
 }
-.RegisterBox {
+.RegisterLoginBox {
     width: 578px;
-    min-height: 200px;
+    overflow: hidden;
     border: 1px solid black;
     margin-bottom: 10px;
-    padding: 0 10px 0 10px;
+    padding: 10px 10px 10px 10px;
+}
+.yunoLogin {
+    width: 250px;
+    height: 250px;
+    background: url('../Images/YuNoLogin.jpg') no-repeat;
+    background-size: contain;
+    float: left;
+}
+.RegLogImgWrapper {
+    float:left;
+    width: 260px;
+}
+.RegLogTxtWrapper {
+    float: left;
+    width: 318px;
 }
 .RegisterTxt {
     font-size: 22px;
@@ -73,4 +89,29 @@
     min-height: 200px;
     border: 1px solid black;
     padding: 0 10px 0 10px;
+}
+.RandNovelHeader {
+    width: 100%;
+    border-bottom: 1px solid white;
+    float: left;
+    margin-bottom: 0px;
+}
+.RandNovelUserName {
+    font-size: 12px;
+    float: right;
+}
+.RandNovelDesc {
+    width: 100%;
+    float: left;
+    margin: 0px;
+}
+#NovelleBeskrivelse {
+    width: 390px;
+    height: 125px;
+}
+.NovelLabel {
+    
+}
+.NovelEditor {
+    margin: 15px 0 15px 0;
 }
