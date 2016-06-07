@@ -40,6 +40,7 @@ namespace Novelle_Hjemmeside.Controllers
             }
 
             return View();
+
         }
     }
 }
