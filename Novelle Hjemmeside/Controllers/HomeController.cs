@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Novelle_Hjemmeside.Classes;
+using Novelle_Hjemmeside.Models;
 
 namespace Novelle_Hjemmeside.Controllers
 {
@@ -12,8 +13,12 @@ namespace Novelle_Hjemmeside.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            Database NovelDb = new Database();
+            NovelleModel RandNovel = new NovelleModel();
+            RandNovel = NovelDb.GetRandomNovelle();
 
-            return View();
+            return View(RandNovel);
+
         }
     }
 }
