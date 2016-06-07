@@ -1,11 +1,29 @@
-﻿@model IEnumerable<Novelle_Hjemmeside.Models.NovelleModel>
+﻿@model Novelle_Hjemmeside.Models.NovelleModel
 @{
     ViewBag.Title = "Index";
 }
 
-<div class="RegisterBox">
-    <h2 class="RegisterTxt">Hvorfor er du ikke logget ind? Log ind her!</h2>
+<div class="RegisterLoginBox">
+    <div class="RegLogImgWrapper">
+        <div class="yunoLogin"></div>
+    </div>
+    <div class="RegLogTxtWrapper">
+        <h2 class="RegisterTxt">Hvorfor er du ikke logget ind? Log ind @Html.ActionLink("her", "Index");!</h2>
+        <h2 class="RegisterTxt">Hvorfor er du ikke Regisreret? Registrer @Html.ActionLink("her", "Index");!</h2>
+        
+    </div>
 </div>
 <div class="RandomNovelBox">
-
+    <h2 class="RandNovelHeader">
+        @Model.NovelleNavn
+    </h2>
+    <p class="RandNovelUserName">
+        @Model.N_Username
+    </p>
+    <p class="RandNovelDesc">
+        @Model.NovelleBeskrivelse
+    </p>
+    <p class="RandNovelRating">
+        
+    </p>
 </div>

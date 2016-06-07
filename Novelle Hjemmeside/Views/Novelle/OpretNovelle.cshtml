@@ -1,0 +1,28 @@
+﻿@model Novelle_Hjemmeside.Models.NovelleModel
+
+@{
+    ViewBag.Title = "OpretNovelle";
+}
+
+<h2>Opret Novelle</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="NovelLabel">
+            @Html.LabelFor(model => model.NovelleNavn)
+        </div>
+        <div class="NovelEditor">
+            @Html.EditorFor(model => model.NovelleNavn)
+        </div>
+        <div class="NovelLabel">
+            @Html.LabelFor(model => model.NovelleBeskrivelse)
+        </div>
+        <div class="NovelEditor">
+            @Html.TextAreaFor(model => model.NovelleBeskrivelse)
+        </div>
+        <input type="submit" value="Opret Novelle" />
+    </fieldset>
+}
