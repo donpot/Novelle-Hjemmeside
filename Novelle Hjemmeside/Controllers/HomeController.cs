@@ -18,6 +18,7 @@ namespace Novelle_Hjemmeside.Controllers
             RandNovel = NovelDb.GetRandomNovelle();
 
             return View(RandNovel);
+
         }
     }
 }
