@@ -20,7 +20,20 @@
                     <div class="HeaderLogo"></div>
                     <h1 class="HeaderTxt">Websters Noveller</h1>
                 </div>
-                <div class="LeftMenuLayout MenuBar"></div>
+                <div class="LeftMenuLayout MenuBar">
+                    @Html.ActionLink("Forside", "Index", "Home")  <br />
+                    @Html.ActionLink("Novelle liste", "sted", "Novelle")  <br />
+                    @if (Session["login"] == null)
+                    {
+                        @Html.ActionLink("Registre", "Registre", "Bruger");  <br />
+                        @Html.ActionLink("Login", "Login", "Bruger");  <br />
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Bruger Info", "Info", "Bruger");  <br />
+                        @Html.ActionLink("Logud", "Logout", "Bruger");  <br />
+                    }
+                </div>
                 <div class="ContentWrapper">
                     <div class="InnerContent">
                         @RenderBody()
