@@ -115,3 +115,18 @@
 .NovelEditor {
     margin: 15px 0 15px 0;
 }
+.button  {
+    outline: 0; 
+    margin: 10px 4px 0 0;
+    padding: 0 1em;
+    height: 2em;
+    text-decoration: none !important; 
+    cursor: pointer; 
+    position: relative;
+    text-align: center !important;
+    font-size:medium;
+    display: inline-block;
+    background-color:black;
+    color:white;
+    width:200px;
+}
