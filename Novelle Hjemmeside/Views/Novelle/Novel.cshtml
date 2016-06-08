@@ -3,6 +3,11 @@
 }
 
 <h2>Novel</h2>
+
+
 <fieldset>
+    @ViewBag.NovelleNavn
+    <br />
+    Forfatter: @ViewBag.forfatter, Dato: @ViewBag.dato
     @Html.Raw(ViewBag.myData)
 </fieldset>
