@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Novelle_Hjemmeside.Models.NovelleModel>
+@{
+    ViewBag.Title = "NovelleList";
+}
+
+<h2 style="text-align:center">NovelleList</h2>
+
+<table class="table">
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <br />
+                        @Html.ActionLink(@item.NovelleNavn, "sted", "sted")
+
+                    </td>
+                    <td style="text-align:end" width="350">
+                        <br />
+                        @item.N_Username, @item.N_Date.Date.ToShortDateString()
+
+                    </td>
+                </tr>
+            }
+
+</table>
