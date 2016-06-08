@@ -10,8 +10,8 @@ namespace Novelle_Hjemmeside.Classes
 {
     public class Database
     {
-        //public static string connectionstring = "Data Source=.;Initial Catalog=Noveller;Integrated Security=True";
-        public static string connectionstring = "Data Source=CHRISTIAN-PC\\SQLEXPRESS;Initial Catalog=Noveller;Integrated Security=True";
+        public static string connectionstring = "Data Source=.;Initial Catalog=Noveller;Integrated Security=True";
+        //public static string connectionstring = "Data Source=CHRISTIAN-PC\\SQLEXPRESS;Initial Catalog=Noveller;Integrated Security=True";
 
         SqlConnection Connection = new SqlConnection(connectionstring);
 
