@@ -167,6 +167,7 @@
     <Content Include="Views\Bruger\Login.cshtml" />
     <Content Include="Views\Novelle\OpretNovelle.cshtml" />
     <Content Include="Views\Novelle\NovelleList.cshtml" />
+    <Content Include="Views\Novelle\Novel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
