@@ -64,5 +64,22 @@ namespace Novelle_Hjemmeside.Controllers
             return View();
 
         }
+        public ActionResult Novel()
+        {
+            string path = @"C:\Users\Christian\Source\Repos\Novelle-Hjemmeside\Novelle Hjemmeside\Novels\Min novelle.txt";
+
+            FileInfo info = new FileInfo(path);
+
+            using (StreamReader sr = info.OpenText())
+            {
+                string s = "";
+
+                while ((s = sr.ReadLine()) != null)
+                {
+                    ViewBag.myData = s;
+                }
+            }
+            return View();
+        }
     }
 }
