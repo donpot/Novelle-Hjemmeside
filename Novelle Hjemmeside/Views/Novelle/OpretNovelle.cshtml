@@ -23,6 +23,15 @@
         <div class="NovelEditor">
             @Html.TextAreaFor(model => model.NovelleBeskrivelse)
         </div>
+        <div class="NovelLabel">
+            <label>Novelle indhold</label>
+        </div>
+        <form id="form1" method="post">
+            <textarea id="mytextarea" name="mytextarea">Skriv her...</textarea>
+        </form>
+
         <input type="submit" value="Opret Novelle" />
     </fieldset>
 }
+
+
