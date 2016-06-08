@@ -98,7 +98,7 @@ namespace Novelle_Hjemmeside.Classes
             List<NovelleModel> NovelleListe = new List<NovelleModel>();
 
             Connection.Open();
-            using (SqlCommand NovelleCommand = new SqlCommand("SELECT * FROM Novel", Connection))
+            using (SqlCommand NovelleCommand = new SqlCommand("SELECT * FROM Novel ORDER BY Dato DESC", Connection))
             {
                 SqlDataReader Nreader = NovelleCommand.ExecuteReader();
                 while (Nreader.Read())
@@ -108,7 +108,7 @@ namespace Novelle_Hjemmeside.Classes
                     n.NovelleNavn = Nreader["NovelleNavn"].ToString();
                     n.Novelle_ID = Convert.ToInt32(Nreader["N_ID"]);
                     n.N_Date = Convert.ToDateTime(Nreader["Dato"]);
-                    n.N_Username = Nreader["BBruger"].ToString();
+                    n.N_Username = Nreader["Bruger"].ToString();
                     n.N_User_ID = Convert.ToInt32(Nreader["B_ID"]);
 
                     NovelleListe.Add(n);

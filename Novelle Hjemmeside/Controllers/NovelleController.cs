@@ -11,10 +11,15 @@ namespace Novelle_Hjemmeside.Controllers
 {
     public class NovelleController : Controller
     {
-        // GET: Novelle
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult NovelleList()
         {
-            return View();
+            Database db = new Database();
+            List<NovelleModel> nvlist = new List<NovelleModel>();
+
+            nvlist = db.GetNovelle();
+
+            return View(nvlist);
         }
         [HttpGet]
         [ActionName("OpretNovelle")]
