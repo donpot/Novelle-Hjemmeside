@@ -41,7 +41,8 @@ namespace Novelle_Hjemmeside.Controllers
             if (ModelState.IsValid)
             {
 
-                string path = @"C:\Users\Christian\Source\Repos\Novelle-Hjemmeside\Novelle Hjemmeside\Novels\" + addNovel.NovelleNavn + ".txt";
+                //string path = @"C:\Users\Christian\Source\Repos\Novelle-Hjemmeside\Novelle Hjemmeside\Novels\" + addNovel.NovelleNavn + ".txt";
+                string path = @"C:\Users\HVF-E308\Source\Repos\Novelle-Hjemmeside\Novelle Hjemmeside\Novels\" + addNovel.NovelleNavn + ".txt";
                 FileInfo info = new FileInfo(path);
                 if (!info.Exists)
                 {
@@ -64,22 +65,37 @@ namespace Novelle_Hjemmeside.Controllers
             return View();
 
         }
-        public ActionResult Novel()
+        public ActionResult Novel(NovelleModel novel)
         {
-            string path = @"C:\Users\Christian\Source\Repos\Novelle-Hjemmeside\Novelle Hjemmeside\Novels\Min novelle.txt";
+            //string path = @"C:\Users\Christian\Source\Repos\Novelle-Hjemmeside\Novelle Hjemmeside\Novels\" + novel.NovelleNavn + ".txt";
+            string path = @"C:\Users\HVF-E308\Source\Repos\Novelle-Hjemmeside\Novelle Hjemmeside\Novels\" + novel.NovelleNavn + ".txt";
 
-            FileInfo info = new FileInfo(path);
+            ViewBag.forfatter = novel.N_Username;
+            ViewBag.dato = novel.N_Date.Date.ToShortDateString();
+            ViewBag.novelle = novel.NovelleNavn;
 
-            using (StreamReader sr = info.OpenText())
+
+            if (Session["login"] == null)
             {
-                string s = "";
+                ViewBag.myData = "<br/>" + novel.NovelleBeskrivelse;
+            }
+            else
+            {
 
-                while ((s = sr.ReadLine()) != null)
+                FileInfo info = new FileInfo(path);
+
+                using (StreamReader sr = info.OpenText())
                 {
-                    ViewBag.myData = s;
+                    string s = "";
+
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        ViewBag.myData = s;
+                    }
                 }
             }
             return View();
+
         }
     }
 }
